@@ -43,7 +43,7 @@ pipeline {
                       -Dsonar.projectBaseDir=${env.WORKSPACE} \
                       -Dsonar.login=$SONARQUBE_PASSWORD \
                       -Dsonar.host.url=${env.SONARQUBE_URL} \
-                      -Dsonar.exclusions=src/test/**,src/node_modules/**,**/migrations/**,**/libs/transactional_db/** \
+                      -Dsonar.exclusions=src/test/**,src/node_modules/**,**@/migrations/**,**@/libs/transactional_db/** \
                       -Dsonar.sourceEncoding=UTF-8 \
                       -Dsonar.language=js \
                       -Dsonar.projectDescription='OSS OpenSource - API Gateway' \
