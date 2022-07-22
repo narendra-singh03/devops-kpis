@@ -1,7 +1,5 @@
 pipeline {
-  agent any 
-  }
-
+  agent any
   stages {
     stage('Setup') {
       steps {
@@ -21,7 +19,7 @@ pipeline {
           appname     = env.JOB_NAME
           prjname     = 'oss-opensource'
           packname    = appname + '-v' + version + '.tar.gz'
-          publish_url = env.NEXUS_URL + '/repository/raw-nodejs/' + prjname + '/' + packname
+          publish_url = env.NEXUS_URL + '/repository/raw-nodejs/' + prjname + '/' + packname 
         }
       }
     }
@@ -34,7 +32,7 @@ pipeline {
       }
     }
 
-    stage('APP Quality'){
+    /*stage('APP Quality'){
       steps {
         withEnv(["PATH+SONAR=${tool 'sonarqube-scanner-v3.0.3'}/bin"]) {
           withCredentials([usernamePassword(credentialsId: 'sonarqube-credential', passwordVariable: 'SONARQUBE_PASSWORD', usernameVariable: 'SONARQUBE_USERNAME')]) {
@@ -54,7 +52,7 @@ pipeline {
           }
         }
       }
-    }
+    }*/
 
     stage('APP Unit Test') {
       steps {
