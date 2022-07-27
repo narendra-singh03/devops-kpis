@@ -24,9 +24,11 @@ pipeline {
     stage ('Archive build output'){
         steps{
             script{
+                sh """
     
                 // Archive the build output artifacts.
                     sh archiveArtifacts artifacts: 'output/*.txt', excludes: 'output/*.md'
+                    """
                     }
                     }
           }
