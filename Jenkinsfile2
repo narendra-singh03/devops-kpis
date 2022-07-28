@@ -15,13 +15,13 @@ pipeline {
                """
           }
       }
-      stage('Deploy Code') {
+      stage('publish to influxDB') {
           steps([$class: 'InfluxDbPublisher',
                  customData: null,
                  customDataMap: null,
                  customPrefix: null,
                  target: 'http://localhost:8086,jenkins-metric'])
-          }
+          
       }
   }
 }
