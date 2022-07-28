@@ -15,10 +15,7 @@ pipeline {
                """
           }
       }
-      stage('publish to influxDB') {
-          step([$class: 'InfluxDbPublisher',
-                 target: 'http://localhost:8086,jenkins-metric'])
-          
-      }
+step([$class: 'InfluxDbPublisher',
+target: 'http://localhost:8086,jenkins-metric'])
   }
 }
